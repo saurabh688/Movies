@@ -34,6 +34,16 @@ const Header = () => {
           onKeyDown={search}
         />
       </div>
+      <div className="header__nav">
+        <Link to="/fav" className="header__link">
+          <div className="header__option">
+            <span className="header__optionOne">Hello, User</span>
+            <span className="header__optionTwo">Favourite Movies</span>
+          </div>
+        </Link>
+       
+      </div>
+
     </nav>
   );
 };

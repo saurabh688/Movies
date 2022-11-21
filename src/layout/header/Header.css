@@ -28,3 +28,17 @@
     width: 100%;
 }
 
+.header__nav {
+    display: flex;
+    justify-content: space-evenly;
+}
+.header__link {
+    color: white;
+    text-decoration: none;
+}
+.header__option {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    margin-right: 10px;
+}

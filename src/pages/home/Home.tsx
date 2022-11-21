@@ -10,6 +10,7 @@ import {
 } from "../../redux/reduxSlice/movies";
 import { RootState } from "../../redux/store";
 import Movies from "../../components/movies/Movies";
+import axios from "axios";
 const Home = () => {
   const { state } = useLocation();
 
@@ -20,10 +21,28 @@ const Home = () => {
   let navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const movieDetailsPage = (Movies: any) => {
-    // console.log("click");
-    // dispatch(getProduct(Movies.id));
-    // navigate("/Movies-details", { state: { Movies } });
+  const saveData = (item: any) => {
+    console.log("fdasfawerqwerfdsf", item);
+    var data = JSON.stringify({
+      movieName: item.id,
+    });
+
+    var config = {
+      method: "post",
+      url: "http://52.22.67.184:4000/movies/saveMovie",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: data,
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
   useEffect(() => {
@@ -49,16 +68,8 @@ const Home = () => {
       <div className="home">
         {movies.length
           ? movies.map((item: any) => (
-              <span
-                onClick={(e: any) => {
-                  e.preventDefault();
-                  movieDetailsPage(item);
-                }}
-                key={item?.id.toString()}
-              >
-                <Movies
-                  data={item}
-                />
+              <span key={item?.id.toString()}>
+                <Movies data={item} onClick={() => saveData(item)} isAdd={true} />
               </span>
             ))
           : null}

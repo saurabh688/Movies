@@ -4,15 +4,20 @@ const Movies = (props: any) => {
     <div className="Movies" key={props.data.id}>
       <div className="movie__info">
         <p>{props.data.title}</p>
-        <p>Brand:{props.data.brand}</p>
-        <p>Description:{props.data.description}</p>
+        <p>Language:{props.data.original_language}</p>
+        <p>Release Date:{props.data.release_date}</p>
         <p className="movie__price">
           <small>$</small>
           <strong>{props.data.price}</strong>
         </p>
       </div>
-      <img src={`https://image.tmdb.org/t/p/w500/${props.data.backdrop_path}`} alt="image1" />
-      <button>Add to favorite</button>
+      <img
+        src={`https://image.tmdb.org/t/p/w500/${props.data.backdrop_path}`}
+        alt="image1"
+      />
+      {props.isAdd ? (
+        <button onClick={props.onClick}>Add to favorite</button>
+      ) : null}
     </div>
   );
 };
