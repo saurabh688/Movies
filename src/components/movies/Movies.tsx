@@ -11,8 +11,8 @@ const Movies = (props: any) => {
           <strong>{props.data.price}</strong>
         </p>
       </div>
-      <img src={props.data.image} alt="" />
-      <button>Add to Basket</button>
+      <img src={`https://image.tmdb.org/t/p/w500/${props.data.backdrop_path}`} alt="image1" />
+      <button>Add to favorite</button>
     </div>
   );
 };

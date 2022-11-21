@@ -3,11 +3,14 @@ import {
   searchDataStart,
   searchDataSuccess,
   searchDataFailure,
+  searchMovieDataStart,
+  searchMovieDataSuccess,
+  searchMovieDataFailure,
 } from "../reduxSlice/movies";
-import { getMovies } from "../services/movies";
+import { getMovie, getMovies } from "../services/movies";
 
 function* movieSagaWatcher() {
-  yield takeLatest([searchDataStart.type], movieWorker);
+  yield takeLatest([searchDataStart.type, searchMovieDataStart.type], movieWorker);
 }
 
 function* movieWorker(action: any): any {
@@ -15,8 +18,16 @@ function* movieWorker(action: any): any {
     switch (action.type) {
       case searchDataStart.type:
         {
-          const response: any = yield call(getMovies, action.payload);
-          yield put(searchDataSuccess({ movies: response.data }));
+          const response: any = yield call(getMovies);
+          console.log("ressssss", response);
+          yield put(searchDataSuccess({ movies: response.results }));
+        }
+        break;
+      case searchMovieDataStart.type:
+        {
+          const response: any = yield call(getMovie, action.payload);
+          console.log("ressssss", response);
+          yield put(searchMovieDataSuccess({ movie: response.results }));
         }
         break;
       default:
@@ -27,6 +38,9 @@ function* movieWorker(action: any): any {
 
     if (action.type === searchDataStart.type) {
       yield put(searchDataFailure);
+    }
+    if (action.type === searchMovieDataStart.type) {
+      yield put(searchMovieDataFailure);
     }
   }
 }
