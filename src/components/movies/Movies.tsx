@@ -1,6 +1,5 @@
 import "./Movies.css";
 const Movies = (props: any) => {
-  console.log("propssss", props);
   return (
     <div className="Movies" key={props.data.id}>
       <div>
