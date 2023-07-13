@@ -29,7 +29,7 @@ const Home = () => {
 
     var config = {
       method: "post",
-      url: "http://52.22.67.184:4000/movies/saveMovie",
+      url: "https://movies-backend-app-e59ccd121a00.herokuapp.com/movies/saveMovie",
       headers: {
         "Content-Type": "application/json",
       },

@@ -33,7 +33,7 @@ const Favourite = () => {
   useEffect(() => {
     var config = {
       method: "get",
-      url: "http://52.22.67.184:4000/movies/getMovies",
+      url: "https://movies-backend-app-e59ccd121a00.herokuapp.com/movies/getMovies",
       headers: {},
     };
 
