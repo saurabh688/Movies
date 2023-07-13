@@ -37,8 +37,7 @@ const Header = () => {
       <div className="header__nav">
         <Link to="/fav" className="header__link">
           <div className="header__option">
-            <span className="header__optionOne">Hello, User</span>
-            <span className="header__optionTwo">Favourite Movies</span>
+            <b className="savedButton">Saved Movies</b>
           </div>
         </Link>
        

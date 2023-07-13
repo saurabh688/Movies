@@ -9,10 +9,8 @@
 }
 
 .header__logo {
-    width: 100px;
-    margin: 8px 20px;
-    margin-top: 18px;
-    object-fit: contain;
+    width: 80px;
+    margin: 8px 13px;
 }
 
 .header__search {
@@ -22,10 +20,11 @@
 }
 
 .header__searchInput {
-    height: 12px;
+    height: 32px;
     padding: 10px;
     border: none;
     width: 100%;
+    border-radius: 4px;
 }
 
 .header__nav {
@@ -41,4 +40,10 @@
     flex-direction: column;
     margin-left: 10px;
     margin-right: 10px;
+
+}
+
+.savedButton {
+    border: 1px dotted #fff;
+    padding: 8px;
 }
